@@ -1,17 +1,16 @@
 package com.kodilla.testing.collection;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class OddNumbersExterminator {
+    private ArrayList<Integer> list = new ArrayList<Integer>();
 
-    public ArrayList<Integer> number() {
-        Random random = new Random();
-        ArrayList<Integer> num = new ArrayList<>();
-        while(num.size()<20) {
-            num.add(random.nextInt(100));
-        }
-        return num;
+    public OddNumbersExterminator(ArrayList<Integer> list) {
+        this.list = list;
+    }
+
+    public ArrayList<Integer> getList() {
+        return list;
     }
 
     public ArrayList<Integer> exterminate(ArrayList<Integer> numbers) {
