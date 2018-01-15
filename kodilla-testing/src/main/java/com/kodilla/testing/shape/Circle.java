@@ -11,10 +11,6 @@ public class Circle implements Shape {
         return r;
     }
 
-    public double fieldCircle() {
-        return 3.14*(r*r);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -32,13 +28,13 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void getShapeName() {
-        System.out.println("Circle");
+    public String getShapeName() {
+        return "Circle";
     }
 
     @Override
     public double getField() {
-        return fieldCircle();
+        return 3.14*(r*r);
     }
 
     @Override

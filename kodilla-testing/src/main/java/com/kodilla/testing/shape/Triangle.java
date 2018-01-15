@@ -17,18 +17,14 @@ public class Triangle implements Shape {
         return h;
     }
 
-    public double fieldTrianle() {
-        return 0.5*a*h;
-    }
-
     @Override
-    public void getShapeName() {
-        System.out.println("Triangle");
+    public String getShapeName() {
+        return "Triangle";
     }
 
     @Override
     public double getField() {
-        return fieldTrianle();
+        return 0.5*a*h;
     }
 
     @Override

@@ -10,18 +10,15 @@ public class Square implements Shape {
     public double getA() {
         return a;
     }
-    public double fieldSquare() {
-        return a*a;
-    }
 
     @Override
-    public void getShapeName() {
-        System.out.println("Square");
+    public String getShapeName() {
+        return "Square";
     }
 
     @Override
     public double getField() {
-        return fieldSquare();
+        return a*a;
     }
 
     @Override
