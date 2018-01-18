@@ -1,12 +1,12 @@
 package com.kodilla.testing.forum.statistics;
 
-import org.junit.*;
+        import org.junit.*;
 
-import java.util.ArrayList;
-import java.util.List;
+        import java.util.ArrayList;
+        import java.util.List;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+        import static org.mockito.Mockito.mock;
+        import static org.mockito.Mockito.when;
 
 public class GetDatasOfStatisticsTestSuite {
     private static int testCounter = 0;
@@ -24,7 +24,7 @@ public class GetDatasOfStatisticsTestSuite {
     @Before
     public void beforeEveryTest() {
         testCounter++;
-        System.out.println("Preparing to execute test #" + testCounter);
+        System.out.println("\nPreparing to execute test #" + testCounter);
     }
     @Test
     public void calculateAdvStatistics1() {
@@ -46,7 +46,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(4,getDatasOfStatistics.users);
+        Assert.assertEquals(4,getDatasOfStatistics.users,0);
+        Assert.assertEquals(0,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(100,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(25.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics2() {
@@ -68,7 +73,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(4,getDatasOfStatistics.users);
+        Assert.assertEquals(4,getDatasOfStatistics.users,0);
+        Assert.assertEquals(1000,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(100,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(250.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(25.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.1,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics3() {
@@ -90,7 +100,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(4,getDatasOfStatistics.users);
+        Assert.assertEquals(4,getDatasOfStatistics.users,0);
+        Assert.assertEquals(1000,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(0,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(250.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics4() {
@@ -112,7 +127,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(4,getDatasOfStatistics.users);
+        Assert.assertEquals(4,getDatasOfStatistics.users,0);
+        Assert.assertEquals(1000,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(200,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(250.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(50.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.2,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics5() {
@@ -134,7 +154,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(4,getDatasOfStatistics.users);
+        Assert.assertEquals(4,getDatasOfStatistics.users,0);
+        Assert.assertEquals(100,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(500,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(25.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(125,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(5,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics6() {
@@ -152,7 +177,12 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(0,getDatasOfStatistics.users);
+        Assert.assertEquals(0,getDatasOfStatistics.users,0);
+        Assert.assertEquals(1000,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(100,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(0.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.1,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
     @Test
     public void calculateAdvStatistics7() {
@@ -172,6 +202,11 @@ public class GetDatasOfStatisticsTestSuite {
         getDatasOfStatistics.ShowStatistics();
 
         //Then
-        Assert.assertEquals(100,getDatasOfStatistics.users);
+        Assert.assertEquals(100,getDatasOfStatistics.users,0);
+        Assert.assertEquals(1000,getDatasOfStatistics.posts,0);
+        Assert.assertEquals(100,getDatasOfStatistics.comments,0);
+        Assert.assertEquals(10.0,getDatasOfStatistics.averagePostsOnUser,0);
+        Assert.assertEquals(1.0,getDatasOfStatistics.averageCommentsOnUser,0);
+        Assert.assertEquals(0.1,getDatasOfStatistics.averageCommentsOnPosts,0);
     }
 }
