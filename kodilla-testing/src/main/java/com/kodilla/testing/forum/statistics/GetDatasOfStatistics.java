@@ -1,9 +1,8 @@
 package com.kodilla.testing.forum.statistics;
-
 public class GetDatasOfStatistics {
-    int users;
-    int posts;
-    int comments;
+    double users;
+    double posts;
+    double comments;
     double averagePostsOnUser;
     double averageCommentsOnUser;
     double averageCommentsOnPosts;
@@ -24,14 +23,14 @@ public class GetDatasOfStatistics {
             averageCommentsOnPosts = comments / posts;
         else
             averageCommentsOnPosts = 0;
-    }
+     }
 
     public void ShowStatistics() {
-        System.out.println(users);
-        System.out.println(posts);
-        System.out.println(comments);
-        System.out.println(averagePostsOnUser);
-        System.out.println(averageCommentsOnUser);
-        System.out.println(averageCommentsOnPosts);
+        System.out.println("Quantity users: " + users);
+        System.out.println("Quantity posts: " + posts);
+        System.out.println("Quantity comments: " + comments);
+        System.out.println("Average Posts On User : " + averagePostsOnUser);
+        System.out.println("Average Comments On User : " + averageCommentsOnUser);
+        System.out.println("Average Comments On Posts : " + averageCommentsOnPosts);
     }
 }
