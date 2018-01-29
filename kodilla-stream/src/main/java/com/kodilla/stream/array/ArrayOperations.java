@@ -1,18 +1,17 @@
 package com.kodilla.stream.array;
 
-import java.util.Arrays;
 import java.util.stream.IntStream;
 
-/*public interface ArrayOperations {
-    //int[] numbers = new int[20];
+public interface ArrayOperations {
+
     static double getAverage(int[] numbers) {
-        double number = Arrays.stream(numbers)
-                //.flatMap()
-               // .map(number -> number);
-                .sum();
-                //.average();
-
-                //.forEach(System.out::println);
-
-    }*/
+        IntStream.range(0, numbers.length)
+                .map(n -> numbers[n])
+                .forEach(System.out::println);
+        double num = IntStream.range(0, numbers.length)
+                .mapToDouble(n -> numbers[n])
+                .average()
+                .getAsDouble();
+        return num;
+    }
 }
