@@ -1,7 +1,6 @@
-/*package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.Food2Door;
 
 public class GlutenFreeShop implements Producent {
-
     private String product;
     private double quantity;
 
@@ -18,8 +17,8 @@ public class GlutenFreeShop implements Producent {
         return quantity;
     }
 
-    public boolean process(String product, double quantity) {
-        System.out.println("Order : " + product + " quantity: " + quantity);
+    public boolean process() {
+        System.out.println("Order processed: " + product + ", " + quantity);
         return true;
     }
-}*/
+}

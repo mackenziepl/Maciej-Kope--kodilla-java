@@ -2,16 +2,22 @@ package com.kodilla.good.patterns.challenges.Food2Door;
 
 public class OrderDto {
 
-    private Firm firm;
+    private String product;
+    private double quantity;
     private boolean isOrder;
 
-    public OrderDto(final Firm firm, final boolean isOrder) {
-        this.firm = firm;
+    public OrderDto(final String product, double quantity, final boolean isOrder) {
+        this.product = product;
+        this.quantity = quantity;
         this.isOrder = isOrder;
     }
 
-    public Producent getFirm() {
-        return firm;
+    public String getProduct() {
+        return product;
+    }
+
+    public double getQuantity() {
+        return quantity;
     }
 
     public boolean isOrder() {

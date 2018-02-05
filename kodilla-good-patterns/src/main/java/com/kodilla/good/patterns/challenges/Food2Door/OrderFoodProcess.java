@@ -7,14 +7,14 @@ public class OrderFoodProcess {
         this.orderRespository = orderRespository;
     }
 
-    public OrderDto run(Firm firm){
-        boolean isOrder = firm.process(firm.getNameFirm(), firm.getProduct(), firm.getQuantity());
+    public OrderDto run(Producent producent){
+        boolean isOrder = producent.process();
 
         if (isOrder) {
-            orderRespository.createOrder(firm.getNameFirm(), firm.getProduct(), firm.getQuantity());
-            return new OrderDto(firm, true);
+            orderRespository.createOrder(producent.getClass().getSimpleName(), producent.getProduct(), producent.getQuantity());
+            return new OrderDto(producent.getProduct(), producent.getQuantity(), true);
         } else {
-            return new OrderDto(firm, false);
+            return new OrderDto(producent.getProduct(), producent.getQuantity(), false);
         }
     }
 

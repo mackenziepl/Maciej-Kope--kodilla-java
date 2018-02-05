@@ -5,8 +5,8 @@ public class Application {
     public static void main(String[] args) {
 
         LoadOrder loadOrder = new LoadOrder();
-        Firm firm = loadOrder.load();
+        Producent producent = loadOrder.load("Mars", 20);
         OrderFoodProcess orderFoodProcess = new OrderFoodProcess(new OrderRespository());
-        orderFoodProcess.run(firm);
+        orderFoodProcess.run(producent);
     }
 }
