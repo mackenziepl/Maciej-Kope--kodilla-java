@@ -4,46 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ListOfFight {
-    private Map<Integer, AirPort> Thelist = new HashMap<>();
-    /*private String nameAirline;
+    private Map<Integer, AirPort> TheList = new HashMap<>();
 
-    public ListOfFight(String nameAirline) {
-        this.nameAirline = nameAirline;
-    }
-
-    //public boolean putT
-
-    public String getNameAirline() {
-        return nameAirline;
+    public ListOfFight() {
+        TheList.put(1, new AirPort("Gdansk", "Poznan", "Koszalin"));
+        TheList.put(2, new AirPort("Warszawa", "Poznan", "Gdansk"));
+        TheList.put(3, new AirPort("Gdansk", "Wroclaw", "Krakow"));
+        TheList.put(4, new AirPort("Poznan", "Gdansk", "Warszawa"));
+        TheList.put(5, new AirPort("Wroclaw", "Poznan", "Gdansk"));
+        TheList.put(6, new AirPort("Gdansk", "Warszawa", "Poznan"));
+        TheList.put(7, new AirPort("Krakow", "Gdansk", "Lodz"));
     }
 
     public Map<Integer, AirPort> getThelist() {
-        return Thelist;
+        return new HashMap<> (TheList);
     }
-
-    @Override
-    public String toString() {
-        return "ListOfFight{" +
-                "Thelist=" + Thelist +
-                ", nameAirline='" + nameAirline + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ListOfFight that = (ListOfFight) o;
-
-        if (Thelist != null ? !Thelist.equals(that.Thelist) : that.Thelist != null) return false;
-        return nameAirline != null ? nameAirline.equals(that.nameAirline) : that.nameAirline == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = Thelist != null ? Thelist.hashCode() : 0;
-        result = 31 * result + (nameAirline != null ? nameAirline.hashCode() : 0);
-        return result;
-    }*/
 }
