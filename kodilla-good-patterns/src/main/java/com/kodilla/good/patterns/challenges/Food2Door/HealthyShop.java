@@ -1,7 +1,6 @@
-/*package com.kodilla.good.patterns.challenges.Food2Door;
+package com.kodilla.good.patterns.challenges.Food2Door;
 
 public class HealthyShop implements Producent {
-
     private String product;
     private double quantity;
 
@@ -10,16 +9,19 @@ public class HealthyShop implements Producent {
         this.quantity = quantity;
     }
 
+    @Override
     public String getProduct() {
         return product;
     }
 
+    @Override
     public double getQuantity() {
         return quantity;
     }
 
-    public boolean process(String product, double quantity) {
-        System.out.println("Order : " + product + " quantity: " + quantity);
-        return true;
+    public boolean process() {
+            System.out.println("Order processed: " + product + ", " + quantity);
+            return true;
     }
-}*/
+}
+

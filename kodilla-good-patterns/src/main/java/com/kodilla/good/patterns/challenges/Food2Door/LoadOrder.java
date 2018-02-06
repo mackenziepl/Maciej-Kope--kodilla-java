@@ -2,12 +2,14 @@ package com.kodilla.good.patterns.challenges.Food2Door;
 
 public class LoadOrder {
 
-    public Firm load() {
+    public Producent load(String product, double quantity) {
 
-        String nameFirm = "ExtraFoodShop";
-        String product = "Mars";
-        double quantity = 2;
-
-        return new ExtraFoodShop(nameFirm, product, quantity);
+        if(quantity<10){
+        return new ExtraFoodShop(product, quantity);
+        } else if(quantity>=10 && quantity<15){
+            return new HealthyShop(product, quantity);
+        } else {
+            return new GlutenFreeShop(product, quantity);
+        }
     }
 }
