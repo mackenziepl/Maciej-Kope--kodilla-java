@@ -24,6 +24,15 @@ public class AirPort {
     }
 
     @Override
+    public String toString() {
+        return "AirPort{" +
+                "nameAirPortFrom='" + nameAirPortFrom + '\'' +
+                ", nameAirPortOn='" + nameAirPortOn + '\'' +
+                ", nameAirPortThrough='" + nameAirPortThrough + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
