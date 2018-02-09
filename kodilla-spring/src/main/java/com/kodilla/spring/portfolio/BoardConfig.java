@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import java.util.ArrayList;
 
@@ -23,6 +24,7 @@ public class BoardConfig {
     }
 
     @Bean(name = "listOne")
+    @Scope("prototype")
     public TaskList getListOne() {
         ArrayList<String> one = new ArrayList<>();
                 one.add("one");
@@ -30,6 +32,7 @@ public class BoardConfig {
     }
 
     @Bean(name = "listTwo")
+    @Scope("prototype")
     public TaskList getListTwo() {
         ArrayList<String> two = new ArrayList<>();
         two.add("two");
@@ -37,6 +40,7 @@ public class BoardConfig {
     }
 
     @Bean(name = "listThree")
+    @Scope("prototype")
     public TaskList getListThree() {
         ArrayList<String> three = new ArrayList<>();
         three.add("three");

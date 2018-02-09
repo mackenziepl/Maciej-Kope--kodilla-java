@@ -7,7 +7,10 @@ public class TaskList {
     List<String> tasks;
 
     public TaskList(List<String> tasks) {
-        tasks = new ArrayList<>();
+        this.tasks = new ArrayList<>();
     }
 
+    public List<String> getTasks() {
+        return tasks;
+    }
 }

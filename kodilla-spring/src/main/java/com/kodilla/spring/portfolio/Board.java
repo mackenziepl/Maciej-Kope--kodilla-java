@@ -24,6 +24,15 @@ public class Board {
     }
 
     public void read() {
-        System.out.println("Task List: " + getToDoList() + getInProgressList() + getDoneList());
+        System.out.println("Task List: " + getToDoList() + getInProgressList()+ getDoneList());
+    }
+
+    @Override
+    public String toString() {
+        return "Board{" +
+                "toDoList=" + toDoList +
+                ", inProgressList=" + inProgressList +
+                ", doneList=" + doneList +
+                '}';
     }
 }
