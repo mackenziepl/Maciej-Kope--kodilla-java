@@ -6,17 +6,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import java.util.ArrayList;
-
 @Configuration
 public class BoardConfig {
     @Autowired
     @Qualifier("listOne")
-    TaskList listOne;
+    public TaskList listOne;
+    @Autowired
     @Qualifier("listTwo")
-    TaskList listTwo;
+    public TaskList listTwo;
+    @Autowired
     @Qualifier("listThree")
-    TaskList listThree;
+    public TaskList listThree;
 
     @Bean
     public Board getBoard() {
@@ -26,24 +26,18 @@ public class BoardConfig {
     @Bean(name = "listOne")
     @Scope("prototype")
     public TaskList getListOne() {
-        ArrayList<String> one = new ArrayList<>();
-                one.add("one");
-             return new TaskList(one);
+        return new TaskList();
     }
 
     @Bean(name = "listTwo")
     @Scope("prototype")
     public TaskList getListTwo() {
-        ArrayList<String> two = new ArrayList<>();
-        two.add("two");
-        return new TaskList(two);
+        return new TaskList();
     }
 
     @Bean(name = "listThree")
     @Scope("prototype")
     public TaskList getListThree() {
-        ArrayList<String> three = new ArrayList<>();
-        three.add("three");
-        return new TaskList(three);
+        return new TaskList();
     }
 }

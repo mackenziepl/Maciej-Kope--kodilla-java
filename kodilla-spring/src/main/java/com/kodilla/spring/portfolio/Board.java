@@ -1,11 +1,11 @@
 package com.kodilla.spring.portfolio;
 
 public class Board {
-    TaskList toDoList;
-    TaskList inProgressList;
-    TaskList doneList;
+    private final TaskList toDoList;
+    private final TaskList inProgressList;
+    private final TaskList doneList;
 
-    public Board(TaskList toDoList, TaskList inProgressList, TaskList doneList) {
+    public Board(final TaskList toDoList, final TaskList inProgressList, final TaskList doneList) {
         this.toDoList = toDoList;
         this.inProgressList = inProgressList;
         this.doneList = doneList;
@@ -24,7 +24,7 @@ public class Board {
     }
 
     public void read() {
-        System.out.println("Task List: " + getToDoList() + getInProgressList()+ getDoneList());
+        System.out.println("Task List: " + toDoList.getTasks() + inProgressList.getTasks() + doneList.getTasks());
     }
 
     @Override
