@@ -1,13 +1,8 @@
 package com.kodilla.rps;
 
-public class Stone {
-    private String name;
-
-    public Stone(String name) {
-        this.name = name;
+public class Stone implements Thing {
+    public String getThingName() {
+        return "Stone";
     }
 
-    public String getName() {
-        return name;
-    }
 }

@@ -1,13 +1,8 @@
 package com.kodilla.rps;
 
-public class Scissors {
-    private String name;
-
-    public Scissors(String name) {
-        this.name = name;
+public class Scissors implements Thing {
+    public String getThingName() {
+        return "Scissors";
     }
 
-    public String getName() {
-        return name;
-    }
 }

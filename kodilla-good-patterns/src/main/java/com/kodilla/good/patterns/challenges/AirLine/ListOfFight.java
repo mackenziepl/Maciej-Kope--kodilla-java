@@ -1,22 +1,22 @@
 package com.kodilla.good.patterns.challenges.AirLine;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ListOfFight {
-    private Map<Integer, AirPort> TheList = new HashMap<>();
+    private Set<Flight> theList = new HashSet<>();
 
     public ListOfFight() {
-        TheList.put(1, new AirPort("Gdansk", "Poznan", "Koszalin"));
-        TheList.put(2, new AirPort("Warszawa", "Poznan", "Gdansk"));
-        TheList.put(3, new AirPort("Gdansk", "Wroclaw", "Krakow"));
-        TheList.put(4, new AirPort("Poznan", "Gdansk", "Warszawa"));
-        TheList.put(5, new AirPort("Wroclaw", "Poznan", "Gdansk"));
-        TheList.put(6, new AirPort("Gdansk", "Warszawa", "Poznan"));
-        TheList.put(7, new AirPort("Krakow", "Gdansk", "Lodz"));
+        theList.add(new Flight("Gdansk", "Warszawa"));
+        theList.add(new Flight("Krakow", "Poznan"));
+        theList.add(new Flight("Gdansk", "Wroclaw"));
+        theList.add(new Flight("Poznan", "Warszawa"));
+        theList.add(new Flight("Wroclaw", "Poznan"));
+        theList.add(new Flight("Gdansk", "Warszawa"));
+        theList.add(new Flight("Wroclaw", "Gdansk"));
     }
 
-    public Map<Integer, AirPort> getThelist() {
-        return new HashMap<> (TheList);
+    public Set<Flight> getTheList() {
+        return new HashSet<> (theList);
     }
 }
