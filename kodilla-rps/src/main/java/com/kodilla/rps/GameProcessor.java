@@ -24,6 +24,7 @@ public class GameProcessor {
     public char scanerChar() {
         Scanner scaner = new Scanner(System.in);
         char a = scaner.next().charAt(0);
+
         return a;
     }
 
@@ -71,21 +72,22 @@ public class GameProcessor {
 
                 if(wyn1 > wyn2) {
                     System.out.println("Wygrywasz grę : " + wyn1 + " do " + wyn2);
-                } else {
+                } else if (wyn1 < wyn2) {
                     System.out.println("Przegrywasz grę : " + wyn1 + " do " + wyn2);
+                } else {
+                    System.out.println("Remis: " + wyn1 + " do " + wyn2);
                 }
 
         System.out.println();
     }
 
-        public boolean gameOver(char a ) {
-        boolean x;
-
-                if(a==120){
+        public void gameOver(char a ) {
+        boolean x = true;
+                 if(a==120){
                     System.out.println("Czy na pewno zakończyć grę? " + " T/N");
                     a = scanerChar();
-                    if(a==116) {x = true;
-                    } else {x = false;}
+                    if(a==116) {getBoolean(x);
+                    } else {}
                 } else if(a==110){
                     System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
                     a = scanerChar();
@@ -95,7 +97,7 @@ public class GameProcessor {
                     else  {x = false;}
 
 
-            return x;
+
         }
 
         public void gamee(char a) {
@@ -110,6 +112,11 @@ public class GameProcessor {
             }
 
 
+        }
+
+        public boolean getBoolean(boolean a) {
+            if(a) {return true;
+            } else return false;
         }
 
 
