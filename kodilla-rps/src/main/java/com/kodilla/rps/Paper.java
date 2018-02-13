@@ -1,13 +1,9 @@
 package com.kodilla.rps;
 
-public class Paper {
-    private String name;
+public class Paper implements Thing{
 
-    public Paper(String name) {
-        this.name = name;
+    public String getThingName() {
+        return "Wybrales 2 - Paper";
     }
 
-    public String getName() {
-        return name;
-    }
 }

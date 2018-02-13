@@ -13,10 +13,10 @@ public class BoardTestSuite {
         Board board = context.getBean(Board.class);
 
         //When
-        //nothing
+        board.getToDoList().getTasks().add("one");
 
         //Then
-        Assert.assertEquals(0, board.getToDoList().getTasks().size());
+        Assert.assertEquals(1, board.getToDoList().getTasks().size());
         Assert.assertEquals(0, board.getInProgressList().getTasks().size());
         Assert.assertEquals(0, board.getDoneList().getTasks().size());
     }

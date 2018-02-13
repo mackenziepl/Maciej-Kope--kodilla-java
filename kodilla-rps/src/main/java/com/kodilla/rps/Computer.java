@@ -3,10 +3,17 @@ package com.kodilla.rps;
 import java.util.Random;
 
 public class Computer {
+    Gamer gamer2;
 
-    public void wykonaj(String name){
-        Random random = new Random();
-        int result = random.nextInt();
-
+    public Computer(Gamer gamer2) {
+        this.gamer2 = gamer2;
     }
+
+    public int random() {
+        Random generator = new Random();
+        int random = generator.nextInt(3);
+        return random + 1;
+    }
+
+
 }

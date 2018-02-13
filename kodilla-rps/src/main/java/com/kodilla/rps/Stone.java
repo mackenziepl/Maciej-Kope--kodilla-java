@@ -1,13 +1,10 @@
 package com.kodilla.rps;
 
-public class Stone {
-    private String name;
-
-    public Stone(String name) {
-        this.name = name;
+public class Stone implements Thing {
+    //String name;
+    public String getThingName() {
+        return "Wybrales 1 - Stone";
     }
 
-    public String getName() {
-        return name;
-    }
+
 }
