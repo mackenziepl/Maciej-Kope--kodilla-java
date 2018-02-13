@@ -1,8 +1,10 @@
 package com.kodilla.rps;
 
 public class Stone implements Thing {
+    //String name;
     public String getThingName() {
-        return "Stone";
+        return "Wybrales 1 - Stone";
     }
+
 
 }

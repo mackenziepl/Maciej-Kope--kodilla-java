@@ -9,17 +9,11 @@ public class Computer {
         this.gamer2 = gamer2;
     }
 
-    public Thing choosen(){
-            Thing theThing;
-            Random generator = new Random();
-            int random = generator.nextInt(3);
-            if (random == 0) {
-                theThing = new Paper();
-            } else if (random == 1) {
-                theThing = new Stone();
-            } else {
-                theThing= new Scissors();
-            }
-            return theThing;
+    public int random() {
+        Random generator = new Random();
+        int random = generator.nextInt(3);
+        return random + 1;
     }
+
+
 }

@@ -3,9 +3,7 @@ package com.kodilla.rps;
 public class Paper implements Thing{
 
     public String getThingName() {
-        return "Paper";
+        return "Wybrales 2 - Paper";
     }
-    //public int getThingNumber(int x) {
-    //    return x;
-    //}
+
 }
