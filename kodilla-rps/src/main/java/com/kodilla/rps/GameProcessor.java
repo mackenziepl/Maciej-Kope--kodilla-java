@@ -7,11 +7,11 @@ public class GameProcessor {
     public void menu() {
         System.out.println("==========>> GRA W PAPIER, KAMIEN, NOŻYCE <<==========");
         System.out.println();
-        System.out.println("1. Zagranie kamień");
-        System.out.println("2. Zagranie papier");
-        System.out.println("3. Zagranie nożyce");
-        System.out.println("4. Zakończenie gry - X");
-        System.out.println("5. Uruchomienie gry od nowa - N");
+        System.out.println(">> Zagranie kamień - klawisz '1'");
+        System.out.println(">> Zagranie papier - klawisz '2'");
+        System.out.println(">> Zagranie nożyce - klawisz '3'");
+        System.out.println(">> Zakończenie gry - klawisz 'x' ");
+        System.out.println(">> Uruchomienie gry od nowa - klawisz 'n'");
         System.out.println();
     }
 
@@ -81,35 +81,11 @@ public class GameProcessor {
         System.out.println();
     }
 
-        public void gameOver(char a ) {
-        boolean x = true;
-                 if(a==120){
-                    System.out.println("Czy na pewno zakończyć grę? " + " T/N");
-                    a = scanerChar();
-                    if(a==116) {getBoolean(x);
-                    } else {}
-                } else if(a==110){
-                    System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
-                    a = scanerChar();
-                    if(a==116) {x = true;
-                    } else {x = false;}
-                }
-                    else  {x = false;}
-
-
-
-        }
 
         public void gamee(char a) {
 
             if(a==49 || a==50 || a==51) {choosen1(a);}
-            else if(a==120 || a==110) {gameOver(a);}
-            else {
-                System.out.println("Niedozwolony klawisz. Spróbuj jeszcze raz.");
-                while (a!=49 || a!=50 || a!=51 || a!=120 || a!=110) {
-                    scanerChar();
-                }
-            }
+
 
 
         }
