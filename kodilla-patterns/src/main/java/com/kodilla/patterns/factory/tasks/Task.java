@@ -1,7 +1,7 @@
 package com.kodilla.patterns.factory.tasks;
 
 public interface Task {
-    int executeTask();
+    void executeTask();
     String getTaskName();
-    boolean isTaskExecuted(int x);
+    boolean isTaskExecuted();
 }

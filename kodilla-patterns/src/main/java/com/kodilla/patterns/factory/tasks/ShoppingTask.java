@@ -4,7 +4,7 @@ public final class ShoppingTask implements Task {
     final String taskName;
     final String whatToBuy;
     final double quantity;
-
+    private Boolean taskexecuted;
 
 
     public ShoppingTask(final String taskName, final String whatToBuy, final double quantity) {
@@ -17,16 +17,13 @@ public final class ShoppingTask implements Task {
     //Wartość flagi powinna być zmieniana w w metodzie executeTask()
     //Po dodaniu flagi w klasach dziedziczących po Task, sprawdź czy wartość flagi jest zmieniana
     //po wykonaniu metody executeTask()
+    // Metoda executeTask powinna być typu void. Flaga taskExecuted powinna znajdować się w klasie
+    // - zmienna w klasie
 
     @Override
-    public int executeTask() {
-        Boolean taskexecuted = true;
-        if(taskexecuted) {
-            System.out.println("Buy " + quantity + " " + whatToBuy);
-            return 1;
-        } else {
-            return 0;
-        }
+    public void executeTask() {
+        System.out.println("Buy " + quantity + " " + whatToBuy);
+        taskexecuted = true;
     }
 
     @Override
@@ -35,8 +32,8 @@ public final class ShoppingTask implements Task {
     }
 
     @Override
-    public boolean isTaskExecuted(int x) {
-        if(x==1) return true;
+    public boolean isTaskExecuted() {
+        if(taskexecuted) return true;
         else return false;
     }
 }
