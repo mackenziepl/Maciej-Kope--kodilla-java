@@ -10,9 +10,52 @@ public class GameProcessor {
         System.out.println(">> Zagranie kamień - klawisz '1'");
         System.out.println(">> Zagranie papier - klawisz '2'");
         System.out.println(">> Zagranie nożyce - klawisz '3'");
-        System.out.println(">> Zakończenie gry - klawisz 'x' ");
-        System.out.println(">> Uruchomienie gry od nowa - klawisz 'n'");
+        System.out.println(">> Nowa gra - klawisz 'n'");
+        System.out.println(">> Koniec gry - klawisz 'x' ");
+
         System.out.println();
+    }
+
+    public int catCH(Thing thing) {
+        int c = 0;
+        if (thing == null) {
+            System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
+            char b;
+            do {
+                b = scanerChar();
+            } while (b != 116 && b != 110);
+            if (b == 116) c = 0;
+            else c = 1;
+        }
+        return c;
+    }
+
+    public Thing switchGame(char b) {
+
+        while(b!=49 && b!=50 && b!=51 && b!=120 && b!=110) {
+            b = scanerChar();
+        }
+        switch(b) {
+            case 49:
+            case 50:
+            case 51:{
+                return choosen1(b);
+            }
+            case 120: {
+
+                break;
+            }
+            case 110: {
+
+                break;
+            }
+
+            default: {
+                System.out.println("Ta gra nie obsługuje tego klawisza.");
+                return null;
+            }
+        }
+        return null;
     }
 
     public int scanerInt() {
@@ -24,7 +67,6 @@ public class GameProcessor {
     public char scanerChar() {
         Scanner scaner = new Scanner(System.in);
         char a = scaner.next().charAt(0);
-
         return a;
     }
 
@@ -69,33 +111,14 @@ public class GameProcessor {
 
 
     public void result(int wyn1, int wyn2) {
-
-                if(wyn1 > wyn2) {
-                    System.out.println("Wygrywasz grę : " + wyn1 + " do " + wyn2);
-                } else if (wyn1 < wyn2) {
-                    System.out.println("Przegrywasz grę : " + wyn1 + " do " + wyn2);
-                } else {
-                    System.out.println("Remis: " + wyn1 + " do " + wyn2);
-                }
-
+        if(wyn1 > wyn2) {
+            System.out.println("Wygrywasz grę : " + wyn1 + " do " + wyn2);
+        } else if (wyn1 < wyn2) {
+            System.out.println("Przegrywasz grę : " + wyn1 + " do " + wyn2);
+        } else {
+            System.out.println("Remis: " + wyn1 + " do " + wyn2);
+        }
         System.out.println();
     }
 
-
-        public void gamee(char a) {
-
-            if(a==49 || a==50 || a==51) {choosen1(a);}
-
-
-
-        }
-
-        public boolean getBoolean(boolean a) {
-            if(a) {return true;
-            } else return false;
-        }
-
-
-
-
-   }
+    }

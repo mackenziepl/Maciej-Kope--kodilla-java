@@ -17,32 +17,27 @@ public class RpsRunner {
         Gamer gamer2 = new Gamer("Computer");
 
         while(!end) {
-
             System.out.print("Podaj ile rund chcesz rozegrać: ");
             int ileRound = game.scanerInt();
-
             System.out.println();
 
             for(int i=0; i<ileRound; i++) {
                 runda++;
                 System.out.println("Runda " + runda);
-
                 System.out.println("Zagrywa: " + gamer1.getGamer());
                 char liczba = game.scanerChar();
-                if(liczba==110) {
-                    System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
-                    liczba = game.scanerChar();
-                    if(liczba==116) {break;
-                    } else {System.out.println("Zagrywa: " + gamer1.getGamer());game.scanerChar(); continue; }
+                Thing result = game.switchGame(liczba);
+                if(result == null) {
+                    System.out.println("Gra przerwana");
+                    int x = game.catCH(result);
+                    if(x == 0) break;
+                    else {runda = 0; continue;}
                 }
-                game.gamee(liczba);
-
-                System.out.println(game.choosen1(liczba).getThingName());
+                System.out.println(result);
 
                 System.out.println("Zagrywa: " + gamer2.getGamer());
                 Computer computer = new Computer(gamer2);
                 int liczba2 = computer.random();
-                //System.out.println(liczba2);
                 System.out.println(game.choosen(liczba2).getThingName());
 
                 int z = game.resultInt(liczba, liczba2);
@@ -59,19 +54,18 @@ public class RpsRunner {
             game.result(wynik1, wynik2);
             runda = 0;
             System.out.println();
-            System.out.println(">> Zakończenie gry - wciśnij klawisz 'x' ");
+            game.menu();
 
             System.out.println();
             char over = game.scanerChar();
             if(over==120) {
-                System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
-                over = game.scanerChar();
-                if(over==116) {end = true;
-                } else {game.menu();}
+                System.out.println("Czy na pewno zakończyć grę? " + " T/N");
+                do {
+                    over = game.scanerChar();
+                } while(over!=116 && over!=110);
+                if(over==116) end = true;
+                else end = false;
             }
-
-
-
         }
 
 
