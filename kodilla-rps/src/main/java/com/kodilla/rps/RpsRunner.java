@@ -21,18 +21,12 @@ public class RpsRunner {
             int ileRound = game.scanerInt();
             System.out.println();
 
-            for(int i=0; i<ileRound; i++) {
-                runda++;
+            for(int i=0; i<ileRound;) {
+                runda++; i++;
                 System.out.println("Runda " + runda);
                 System.out.println("Zagrywa: " + gamer1.getGamer());
                 char liczba = game.scanerChar();
                 Thing result = game.switchGame(liczba);
-                if(result == null) {
-                    System.out.println("Gra przerwana");
-                    int x = game.catCH(result);
-                    if(x == 0) break;
-                    else {runda = 0; continue;}
-                }
                 System.out.println(result);
 
                 System.out.println("Zagrywa: " + gamer2.getGamer());
@@ -52,25 +46,17 @@ public class RpsRunner {
 
             }
             game.result(wynik1, wynik2);
-            runda = 0;
+            runda = 0; wynik1=0; wynik2 = 0;
             System.out.println();
-            game.menu();
+            System.out.println(">> Nowa gra - klawisz 'n'");
+            System.out.println(">> Koniec gry - klawisz 'x' ");
+            System.out.println();
+            char over;
+            do {
+                over = game.scanerChar();
 
-            System.out.println();
-            char over = game.scanerChar();
-            if(over==120) {
-                System.out.println("Czy na pewno zakończyć grę? " + " T/N");
-                do {
-                    over = game.scanerChar();
-                } while(over!=116 && over!=110);
-                if(over==116) end = true;
-                else end = false;
-            }
+            } while(over!=120 && over!=110);
+            end = game.overX(over);
         }
-
-
-
-
-
     }
 }
