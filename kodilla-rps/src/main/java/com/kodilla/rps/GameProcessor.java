@@ -7,12 +7,68 @@ public class GameProcessor {
     public void menu() {
         System.out.println("==========>> GRA W PAPIER, KAMIEN, NOŻYCE <<==========");
         System.out.println();
-        System.out.println("1. Zagranie kamień");
-        System.out.println("2. Zagranie papier");
-        System.out.println("3. Zagranie nożyce");
-        System.out.println("4. Zakończenie gry - X");
-        System.out.println("5. Uruchomienie gry od nowa - N");
+        System.out.println(">> Zagranie kamień - klawisz '1'");
+        System.out.println(">> Zagranie papier - klawisz '2'");
+        System.out.println(">> Zagranie nożyce - klawisz '3'");
+        System.out.println(">> Nowa gra - klawisz 'n'");
+        System.out.println(">> Koniec gry - klawisz 'x' ");
+
         System.out.println();
+    }
+
+    public Thing switchGame(char b) {
+
+        while(b!=49 && b!=50 && b!=51) {
+            System.out.println("Ta gra nie obsługuje tego klawisza.");
+            b = scanerChar();
+        }
+        switch(b) {
+            case 49:
+            case 50:
+            case 51:{
+                return choosen1(b);
+            }
+            default: {
+                return null;
+            }
+        }
+    }
+
+    public boolean overX(char over) {
+        boolean m = false;
+        if (over == 120) {
+            System.out.println("Czy na pewno zakończyć grę? " + " T/N");
+            do {
+                over = scanerChar();
+                if (over != 116 && over != 110) System.out.println("Wciśnij T lub N");
+            } while (over != 116 && over != 110);
+            if (over == 110) {
+                System.out.println(">> Nowa gra? " + " T/N");
+                do {
+                    over = scanerChar();
+                    if (over != 116 && over != 110) System.out.println("Wciśnij T lub N");
+                } while (over != 116 && over != 110);
+                if (over == 110) m = true;
+                else m = false;
+            } else m = true;
+        }
+        if (over == 110) {
+            System.out.println("Czy chcesz zacząć nową grę? " + " T/N");
+            do {
+                over = scanerChar();
+                if (over != 116 && over != 110) System.out.println("Wciśnij T lub N");
+            } while (over != 116 && over != 110);
+            if (over == 110) {
+                System.out.println(">> Czy na pewno zakończyć grę? " + " T/N");
+                do {
+                    over = scanerChar();
+                    if (over != 116 && over != 110) System.out.println("Wciśnij T lub N");
+                } while (over != 116 && over != 110);
+                if (over == 110) m = false;
+                else m = true;
+            } else m = false;
+        }
+       return m;
     }
 
     public int scanerInt() {
@@ -24,10 +80,8 @@ public class GameProcessor {
     public char scanerChar() {
         Scanner scaner = new Scanner(System.in);
         char a = scaner.next().charAt(0);
-
         return a;
     }
-
 
     public Thing choosen(int liczba) {
         Thing object;
@@ -67,59 +121,14 @@ public class GameProcessor {
             return 2;}
     }
 
-
     public void result(int wyn1, int wyn2) {
-
-                if(wyn1 > wyn2) {
-                    System.out.println("Wygrywasz grę : " + wyn1 + " do " + wyn2);
-                } else if (wyn1 < wyn2) {
-                    System.out.println("Przegrywasz grę : " + wyn1 + " do " + wyn2);
-                } else {
-                    System.out.println("Remis: " + wyn1 + " do " + wyn2);
-                }
-
+        if(wyn1 > wyn2) {
+            System.out.println("Wygrywasz grę : " + wyn1 + " do " + wyn2);
+        } else if (wyn1 < wyn2) {
+            System.out.println("Przegrywasz grę : " + wyn1 + " do " + wyn2);
+        } else {
+            System.out.println("Remis: " + wyn1 + " do " + wyn2);
+        }
         System.out.println();
     }
-
-        public void gameOver(char a ) {
-        boolean x = true;
-                 if(a==120){
-                    System.out.println("Czy na pewno zakończyć grę? " + " T/N");
-                    a = scanerChar();
-                    if(a==116) {getBoolean(x);
-                    } else {}
-                } else if(a==110){
-                    System.out.println("Czy na pewno zakończyć aktualną grę? " + " T/N");
-                    a = scanerChar();
-                    if(a==116) {x = true;
-                    } else {x = false;}
-                }
-                    else  {x = false;}
-
-
-
-        }
-
-        public void gamee(char a) {
-
-            if(a==49 || a==50 || a==51) {choosen1(a);}
-            else if(a==120 || a==110) {gameOver(a);}
-            else {
-                System.out.println("Niedozwolony klawisz. Spróbuj jeszcze raz.");
-                while (a!=49 || a!=50 || a!=51 || a!=120 || a!=110) {
-                    scanerChar();
-                }
-            }
-
-
-        }
-
-        public boolean getBoolean(boolean a) {
-            if(a) {return true;
-            } else return false;
-        }
-
-
-
-
-   }
+}

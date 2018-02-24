@@ -6,4 +6,8 @@ public class Paper implements Thing{
         return "Wybrales 2 - Paper";
     }
 
+    @Override
+    public String toString() {
+        return getThingName();
+    }
 }

@@ -6,5 +6,8 @@ public class Stone implements Thing {
         return "Wybrales 1 - Stone";
     }
 
-
+    @Override
+    public String toString() {
+        return getThingName();
+    }
 }

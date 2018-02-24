@@ -5,6 +5,10 @@ public class Scissors implements Thing {
         return "Wybrales 3 - Scissors";
     }
 
+    @Override
+    public String toString() {
+        return getThingName();
+    }
 
 }
 
