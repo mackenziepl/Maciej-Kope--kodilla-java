@@ -5,6 +5,12 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveNameCompanyThanFirstThreeMark",
+        query = "SELECT * FROM COMPANIES" +
+                " WHERE "
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
