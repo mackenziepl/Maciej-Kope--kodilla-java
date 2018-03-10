@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveNameCompanyThanFirstThreeMark",
+        name = "Company.retrieveWithThreeFirstLetters",
         query = "SELECT * FROM COMPANIES" +
-                " WHERE "
+                " WHERE COMPANY_NAME LIKE ' = :DURATION %'",
+        resultClass = Company.class
 )
 
 @Entity

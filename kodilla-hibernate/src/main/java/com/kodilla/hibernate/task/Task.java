@@ -94,7 +94,7 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "TASKLIST_ID")
     public TaskList getTaskList() {
         return taskList;
