@@ -8,7 +8,7 @@ import java.util.List;
 @NamedNativeQuery(
         name = "Company.retrieveWithThreeFirstLetters",
         query = "SELECT * FROM COMPANIES" +
-                " WHERE COMPANY_NAME LIKE ' = :DURATION %'",
+                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
         resultClass = Company.class
 )
 
