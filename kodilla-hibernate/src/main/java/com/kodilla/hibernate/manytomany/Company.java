@@ -6,9 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 @NamedNativeQuery(
-        name = "Company.retrieveNameCompanyThanFirstThreeMark",
+        name = "Company.retrieveWithThreeFirstLetters",
         query = "SELECT * FROM COMPANIES" +
-                " WHERE "
+                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
+        resultClass = Company.class
 )
 
 @Entity
