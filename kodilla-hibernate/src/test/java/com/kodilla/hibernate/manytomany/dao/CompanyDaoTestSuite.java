@@ -77,6 +77,7 @@ public class CompanyDaoTestSuite {
         Company softwareMachine1 = new Company("Software Machine");
         Company dataMaesters1 = new Company("Data Maesters");
         Company greyMatter1 = new Company("Grey Matter");
+
         softwareMachine1.getEmployees().add(johnSmith1);
         dataMaesters1.getEmployees().add(stephanieClarckson1);
         dataMaesters1.getEmployees().add(lindaKovalsky1);
