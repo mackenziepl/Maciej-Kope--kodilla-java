@@ -17,36 +17,29 @@ public final class EntitiesFacade {
     @Autowired
     EmployeeDao employeeDao;
 
-    public void processor(Employee employee, Company company) {
-        employee.getCompanies().add(company);
-        company.getEmployees().add(employee);
-    }
-
     public void save(Company company) {
         companyDao.save(company);
     }
 
-
-    public void search(String findCompany, String findEmployee) {
-        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters(findCompany);
-        List<Employee> lastname = employeeDao.retrieveWithLastname(findEmployee);
+    public void delete(int company) {
+        companyDao.delete(company);
     }
 
 
-    public int sizeCompany(String findCompany) {
-        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters(findCompany);
-        for (Company theList : threeFirstLetters) {
-            System.out.println(theList);
+    public List<Employee> searchEmployee(String findEmployee) throws EntitiesFacadeException {
+        List<Employee> lastname = employeeDao.retrieveWithLastname(findEmployee);
+        if(findEmployee.isEmpty()) {
+            throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHEMPLOYEE_ERROR);
         }
-        return threeFirstLetters.size();
+        return lastname;
     }
 
-    public int sizeEmployee(String findEmployee) {
-        List<Employee> lastname = employeeDao.retrieveWithLastname(findEmployee);
-        for (Employee theList : lastname) {
-            System.out.println(theList);
+    public List<Company> searchCompany(String findCompany) throws EntitiesFacadeException {
+        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters(findCompany);
+        if(threeFirstLetters.size()<1) {
+            throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHCOMPANY_ERROR);
         }
-        return lastname.size();
+        return threeFirstLetters;
     }
 
     public int quantityCompany() {
@@ -57,6 +50,7 @@ public final class EntitiesFacade {
     public void cleanUp(int x) {
         for (int i=x; i>0; i--)
         companyDao.delete(i);
+        companyDao.deleteAll();
 
     }
 }

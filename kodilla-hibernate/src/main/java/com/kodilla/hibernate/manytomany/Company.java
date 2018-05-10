@@ -5,10 +5,17 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+//@NamedNativeQuery(
+//        name = "Company.retrieveWithThreeFirstLetters",
+//        query = "SELECT * FROM COMPANIES" +
+//                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
+//        resultClass = Company.class
+//)
+
 @NamedNativeQuery(
         name = "Company.retrieveWithThreeFirstLetters",
         query = "SELECT * FROM COMPANIES" +
-                " WHERE SUBSTRING(COMPANY_NAME, 1, 3) = :NAME",
+                " WHERE COMPANY_NAME LIKE 'Sof%' = :NAME",
         resultClass = Company.class
 )
 

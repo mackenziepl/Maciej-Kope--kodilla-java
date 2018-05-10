@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class EntitiesFacadeTest {
@@ -17,7 +19,7 @@ public class EntitiesFacadeTest {
     EntitiesFacade entitiesFacade;
 
     @Test
-    public void facadetest() {
+    public void facadeCompanyTest() {
         //Given
         Employee johnSmith1 = new Employee("John", "Smith");
         Employee stephanieClarckson1 = new Employee("Stephanie", "Clarckson");
@@ -27,29 +29,112 @@ public class EntitiesFacadeTest {
         Company dataMaesters1 = new Company("Data Maesters");
         Company greyMatter1 = new Company("Grey Matter");
 
-        entitiesFacade.processor(johnSmith1, softwareMachine1);
-        entitiesFacade.processor(stephanieClarckson1, dataMaesters1);
-        entitiesFacade.processor(lindaKovalsky1, dataMaesters1);
-        entitiesFacade.processor(johnSmith1, greyMatter1);
-        entitiesFacade.processor(lindaKovalsky1, greyMatter1);
+        softwareMachine1.getEmployees().add(johnSmith1);
+        dataMaesters1.getEmployees().add(stephanieClarckson1);
+        dataMaesters1.getEmployees().add(lindaKovalsky1);
+        greyMatter1.getEmployees().add(johnSmith1);
+        greyMatter1.getEmployees().add(lindaKovalsky1);
+
+        johnSmith1.getCompanies().add(softwareMachine1);
+        johnSmith1.getCompanies().add(greyMatter1);
+        stephanieClarckson1.getCompanies().add(dataMaesters1);
+        lindaKovalsky1.getCompanies().add(dataMaesters1);
+        lindaKovalsky1.getCompanies().add(greyMatter1);
 
         entitiesFacade.save(softwareMachine1);
+        int softwareMachineId = softwareMachine1.getId();
         entitiesFacade.save(dataMaesters1);
+        int dataMaestersId = dataMaesters1.getId();
         entitiesFacade.save(greyMatter1);
+        int greyMatterId = greyMatter1.getId();
 
-        //When
-        entitiesFacade.search("Sof", "Smith");
+        System.out.println(softwareMachineId);
+        System.out.println(dataMaestersId);
+        System.out.println(greyMatterId);
 
-        //Than
-       try {
-                Assert.assertEquals(1, entitiesFacade.sizeCompany("Sof"));
-                Assert.assertEquals(1, entitiesFacade.sizeEmployee("Smith"));
+        List<Company> threeFirstLetters = null;
+        try {
+            threeFirstLetters = entitiesFacade.searchCompany("Sof");
+        } catch (EntitiesFacadeException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(threeFirstLetters);
+
+        //When && Than
+        try {
+        //List<Employee> threeFirstLetters = entitiesFacade.searchEmployee("Smith");
+
+
+
+           //Assert.assertEquals(1, threeFirstLetters.size());
+           Assert.assertEquals(1, threeFirstLetters.size());
+
+
+
                 int x = entitiesFacade.quantityCompany();
                 System.out.println(x);
                 entitiesFacade.cleanUp(x);
-        } catch (Exception a){
+        } catch (Exception e){
+        }
+        //CleanUp
+//        entitiesFacade.delete(softwareMachineId);
+//        entitiesFacade.delete(dataMaestersId);
+//        entitiesFacade.delete(greyMatterId);
+    }
+
+    @Test
+    public void facadeEmployeeTest() {
+        //Given
+        Employee johnSmith1 = new Employee("John", "Smith");
+        Employee stephanieClarckson1 = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky1 = new Employee("Linda", "Kovalsoky");
+
+        Company softwareMachine1 = new Company("Software Machine");
+        Company dataMaesters1 = new Company("Data Maesters");
+        Company greyMatter1 = new Company("Grey Matter");
+
+        softwareMachine1.getEmployees().add(johnSmith1);
+        dataMaesters1.getEmployees().add(stephanieClarckson1);
+        dataMaesters1.getEmployees().add(lindaKovalsky1);
+        greyMatter1.getEmployees().add(johnSmith1);
+        greyMatter1.getEmployees().add(lindaKovalsky1);
+
+        johnSmith1.getCompanies().add(softwareMachine1);
+        johnSmith1.getCompanies().add(greyMatter1);
+        stephanieClarckson1.getCompanies().add(dataMaesters1);
+        lindaKovalsky1.getCompanies().add(dataMaesters1);
+        lindaKovalsky1.getCompanies().add(greyMatter1);
+
+        entitiesFacade.save(softwareMachine1);
+        int softwareMachineId = softwareMachine1.getId();
+        entitiesFacade.save(dataMaesters1);
+        int dataMaestersId = dataMaesters1.getId();
+        entitiesFacade.save(greyMatter1);
+        int greyMatterId = greyMatter1.getId();
+
+        System.out.println(softwareMachineId);
+        System.out.println(dataMaestersId);
+        System.out.println(greyMatterId);
+
+        //When && Than
+        try {
+            List<Employee> lastname = entitiesFacade.searchEmployee("Smith");
+
+            System.out.println(lastname);
+
+            Assert.assertEquals(1, lastname.size());
+
+            //CleanUp
+            entitiesFacade.delete(softwareMachineId);
+            entitiesFacade.delete(dataMaestersId);
+            entitiesFacade.delete(greyMatterId);
+
+//                int x = entitiesFacade.quantityCompany();
+//                System.out.println(x);
+//                entitiesFacade.cleanUp(x);
+        } catch (Exception e){
 
         }
     }
-
 }
