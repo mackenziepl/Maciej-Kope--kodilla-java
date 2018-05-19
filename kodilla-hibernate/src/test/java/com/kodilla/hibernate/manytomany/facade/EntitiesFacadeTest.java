@@ -48,6 +48,7 @@ public class EntitiesFacadeTest {
         entitiesFacade.save(greyMatter1);
         int greyMatterId = greyMatter1.getId();
 
+        //When
         List<Company> threeFirstLetters = null;
         try {
             threeFirstLetters = entitiesFacade.searchCompany("Sof");
@@ -62,7 +63,7 @@ public class EntitiesFacadeTest {
             e.printStackTrace();
         }
 
-        //When && Than
+        //Than
         try {
            Assert.assertEquals(1, threeFirstLetters.size());
            Assert.assertEquals(2, anyLetters.size());
@@ -115,7 +116,7 @@ public class EntitiesFacadeTest {
 
         List<Employee> anyLettersLastname = null;
         try {
-            anyLettersLastname = entitiesFacade.searchEmployeeAny("th");
+            anyLettersLastname = entitiesFacade.searchEmployeeAny("so");
         } catch (EntitiesFacadeException e) {
             e.printStackTrace();
         }
@@ -123,7 +124,7 @@ public class EntitiesFacadeTest {
         // Than
         try {
             Assert.assertEquals(1, lastname.size());
-            Assert.assertEquals(1, anyLettersLastname.size());
+            Assert.assertEquals(2, anyLettersLastname.size());
 
             //CleanUp
             entitiesFacade.delete(softwareMachineId);

@@ -28,18 +28,18 @@ public final class EntitiesFacade {
 
     public List<Employee> searchEmployee(String findEmployee) throws EntitiesFacadeException {
         List<Employee> lastname = employeeDao.retrieveWithLastname(findEmployee);
-        if(findEmployee.isEmpty()) {
+        if(lastname.isEmpty()) {
             throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHEMPLOYEE_ERROR);
         }
         return lastname;
     }
 
     public List<Employee> searchEmployeeAny(String findEmployee) throws EntitiesFacadeException {
-        List<Employee> lastname = employeeDao.retrieveWithAnyLettersLastname(findEmployee);
-        if(findEmployee.isEmpty()) {
+        List<Employee> anyLettersLastname = employeeDao.retrieveWithAnyLettersLastname(findEmployee);
+        if(anyLettersLastname.isEmpty()) {
             throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHEMPLOYEE_ERROR);
         }
-        return lastname;
+        return anyLettersLastname;
     }
 
     public List<Company> searchCompany(String findCompany) throws EntitiesFacadeException {

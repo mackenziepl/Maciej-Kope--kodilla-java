@@ -62,8 +62,6 @@ public class CompanyDaoTestSuite {
                 companyDao.delete(greyMatterId);
                 companyDao.deleteAll();
             } catch (Exception e) {
-                //do nothing
-            System.out.println("dupa");
             }
         }
 
@@ -98,19 +96,18 @@ public class CompanyDaoTestSuite {
         int greyMatterId = greyMatter1.getId();
 
         //When
-        //List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters("Sof");
+        List<Company> threeFirstLetters = companyDao.retrieveWithThreeFirstLetters("Sof");
         List<Employee> lastname = employeeDao.retrieveWithLastname("Smith");
 
         //Than
         try {
-           // Assert.assertEquals(1, threeFirstLetters.size());
-           // Assert.assertEquals(1, lastname.size());
+            Assert.assertEquals(1, threeFirstLetters.size());
+            Assert.assertEquals(1, lastname.size());
             //CleanUp
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
-        } catch (Exception a){
-
+        } catch (Exception e){
         }
     }
 }
