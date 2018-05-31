@@ -28,10 +28,18 @@ public final class EntitiesFacade {
 
     public List<Employee> searchEmployee(String findEmployee) throws EntitiesFacadeException {
         List<Employee> lastname = employeeDao.retrieveWithLastname(findEmployee);
-        if(findEmployee.isEmpty()) {
+        if(lastname.isEmpty()) {
             throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHEMPLOYEE_ERROR);
         }
         return lastname;
+    }
+
+    public List<Employee> searchEmployeeAny(String findEmployee) throws EntitiesFacadeException {
+        List<Employee> anyLettersLastname = employeeDao.retrieveWithAnyLettersLastname(findEmployee);
+        if(anyLettersLastname.isEmpty()) {
+            throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHEMPLOYEE_ERROR);
+        }
+        return anyLettersLastname;
     }
 
     public List<Company> searchCompany(String findCompany) throws EntitiesFacadeException {
@@ -42,15 +50,23 @@ public final class EntitiesFacade {
         return threeFirstLetters;
     }
 
-    public int quantityCompany() {
-        long quantity = companyDao.count();
-        return (int)quantity;
+    public List<Company> searchCompanyAny(String findCompany) throws EntitiesFacadeException {
+        List<Company> anyLetters = companyDao.retrieveWithAnyLetters(findCompany);
+        if(anyLetters.size()<1) {
+            throw new EntitiesFacadeException(EntitiesFacadeException.ERR_SEARCHCOMPANY_ERROR);
+        }
+        return anyLetters;
     }
 
-    public void cleanUp(int x) {
-        for (int i=x; i>0; i--)
-        companyDao.delete(i);
-        companyDao.deleteAll();
-
-    }
+//    public int quantityCompany() {
+//        long quantity = companyDao.count();
+//        return (int)quantity;
+//    }
+//
+//    public void cleanUp(int x) {
+//        for (int i=x; i>0; i--)
+//        companyDao.delete(i);
+//        companyDao.deleteAll();
+//
+//    }
 }

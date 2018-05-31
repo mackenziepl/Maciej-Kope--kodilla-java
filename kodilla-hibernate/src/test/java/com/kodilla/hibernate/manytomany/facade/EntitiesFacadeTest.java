@@ -48,10 +48,7 @@ public class EntitiesFacadeTest {
         entitiesFacade.save(greyMatter1);
         int greyMatterId = greyMatter1.getId();
 
-        System.out.println(softwareMachineId);
-        System.out.println(dataMaestersId);
-        System.out.println(greyMatterId);
-
+        //When
         List<Company> threeFirstLetters = null;
         try {
             threeFirstLetters = entitiesFacade.searchCompany("Sof");
@@ -59,28 +56,24 @@ public class EntitiesFacadeTest {
             e.printStackTrace();
         }
 
-        System.out.println(threeFirstLetters);
-
-        //When && Than
+        List<Company> anyLetters = null;
         try {
-        //List<Employee> threeFirstLetters = entitiesFacade.searchEmployee("Smith");
+            anyLetters = entitiesFacade.searchCompanyAny("ter");
+        } catch (EntitiesFacadeException e) {
+            e.printStackTrace();
+        }
 
-
-
-           //Assert.assertEquals(1, threeFirstLetters.size());
+        //Than
+        try {
            Assert.assertEquals(1, threeFirstLetters.size());
+           Assert.assertEquals(2, anyLetters.size());
 
-
-
-                int x = entitiesFacade.quantityCompany();
-                System.out.println(x);
-                entitiesFacade.cleanUp(x);
+        //CleanUp
+            entitiesFacade.delete(softwareMachineId);
+            entitiesFacade.delete(dataMaestersId);
+            entitiesFacade.delete(greyMatterId);
         } catch (Exception e){
         }
-        //CleanUp
-//        entitiesFacade.delete(softwareMachineId);
-//        entitiesFacade.delete(dataMaestersId);
-//        entitiesFacade.delete(greyMatterId);
     }
 
     @Test
@@ -113,28 +106,31 @@ public class EntitiesFacadeTest {
         entitiesFacade.save(greyMatter1);
         int greyMatterId = greyMatter1.getId();
 
-        System.out.println(softwareMachineId);
-        System.out.println(dataMaestersId);
-        System.out.println(greyMatterId);
-
-        //When && Than
+        //When
+        List<Employee> lastname = null;
         try {
-            List<Employee> lastname = entitiesFacade.searchEmployee("Smith");
+            lastname = entitiesFacade.searchEmployee("Smith");
+        } catch (EntitiesFacadeException e) {
+            e.printStackTrace();
+        }
 
-            System.out.println(lastname);
+        List<Employee> anyLettersLastname = null;
+        try {
+            anyLettersLastname = entitiesFacade.searchEmployeeAny("so");
+        } catch (EntitiesFacadeException e) {
+            e.printStackTrace();
+        }
 
+        // Than
+        try {
             Assert.assertEquals(1, lastname.size());
+            Assert.assertEquals(2, anyLettersLastname.size());
 
             //CleanUp
             entitiesFacade.delete(softwareMachineId);
             entitiesFacade.delete(dataMaestersId);
             entitiesFacade.delete(greyMatterId);
-
-//                int x = entitiesFacade.quantityCompany();
-//                System.out.println(x);
-//                entitiesFacade.cleanUp(x);
         } catch (Exception e){
-
         }
     }
 }
